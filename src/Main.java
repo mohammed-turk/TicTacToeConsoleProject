@@ -51,8 +51,10 @@ public class Main {
                 ||
                 (twoDArray[0][2] == twoDArray[1][2] && twoDArray[0][2] == twoDArray[2][2])
         ){
-
+            return true;
         }
+        else
+            return false;
 
     }
 
