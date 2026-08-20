@@ -13,8 +13,11 @@ public class Main {
         twoDArray[2][0] = 7;
         twoDArray[2][1] = 8;
         twoDArray[2][2] = 9;
-
         print2DArray(twoDArray);
+
+
+
+
 
 
     }
@@ -29,4 +32,29 @@ public class Main {
             System.out.println("|---|---|---|");
         }
     }
+    public static boolean checkWin(int[][] twoDArray ){
+
+        if (
+                (twoDArray[0][0] == twoDArray[0][1] && twoDArray[0][0] == twoDArray[0][2])
+                ||
+                (twoDArray[1][0] == twoDArray[1][1] && twoDArray[1][0] == twoDArray[1][2])
+                ||
+                (twoDArray[2][0] == twoDArray[2][1] && twoDArray[2][0] == twoDArray[2][2])
+                ||
+                (twoDArray[0][0] == twoDArray[1][1] && twoDArray[0][0] == twoDArray[2][2])
+                ||
+                (twoDArray[0][2] == twoDArray[1][1] && twoDArray[0][2] == twoDArray[2][0])
+                ||
+                (twoDArray[0][0] == twoDArray[1][0] && twoDArray[0][0] == twoDArray[2][0])
+                ||
+                (twoDArray[0][1] == twoDArray[1][1] && twoDArray[0][1] == twoDArray[2][1])
+                ||
+                (twoDArray[0][2] == twoDArray[1][2] && twoDArray[0][2] == twoDArray[2][2])
+        ){
+
+        }
+
+    }
+
+
 }
