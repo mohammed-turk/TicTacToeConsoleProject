@@ -57,6 +57,10 @@ public class Main {
             return false;
 
     }
+    public static int getRandom(){
+        return ( (int) ((Math.random() * 9)) + 1);
+    }
+
 
 
 }
