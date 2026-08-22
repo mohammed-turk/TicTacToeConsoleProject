@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -17,6 +18,8 @@ public class Main {
         twoDArray[2][1] = 8;
         twoDArray[2][2] = 9;
 
+        int numberOfRounds = 0;
+
 
         int playerNumber, computerNumber;
 
@@ -28,158 +31,137 @@ public class Main {
         boolean computerExit;
         int[] index;
 
-        while (!checkWin(twoDArray)[0] && !tie){
+            while (!checkWin(twoDArray)[0] && !tie){
 
-            playerExit = false;
-            while (!playerExit && !tie) {
-                if (checkFull(twoDArray)) {
-                    System.out.println("Tie");
-                    tie = true;
-                    break;
-                }
-                print2DArray(twoDArray);
-                System.out.println("Input player choice between 1 and 9: ");
-                playerNumber = scanner.nextInt();
-                index = getIndex(playerNumber);
-                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
-                    && (
-                        (twoDArray[0][0] == 1)
-                        ||
-                                (twoDArray[0][1] == 2)
-                                ||
-                                (twoDArray[0][2] == 3)
-                                ||
-                                (twoDArray[1][0] == 4)
-                                ||
-                                (twoDArray[1][1] == 5)
-                                ||
-                                (twoDArray[1][2] == 6)
-                                ||
-                                (twoDArray[2][0] == 7)
-                                ||
-                                (twoDArray[2][1] == 8)
-                                ||
-                                (twoDArray[2][2] == 9)
-
-
-                        )
-                ){
-                    twoDArray[index[0]][index[1]] = 10;
-                    playerExit = true;
-                    System.out.println("Valid choice");
-                }
-//                else if(
-//                        (twoDArray[0][0] != 1 && (twoDArray[0][0] == 10 || twoDArray[0][0] == 11) )
-//                                &&
-//                                (twoDArray[0][1] != 2 && (twoDArray[0][1] == 10 || twoDArray[0][1] == 11) )
-//                                &&
-//                                (twoDArray[0][2] != 3 && (twoDArray[0][2] == 10 || twoDArray[0][2] == 11) )
-//                                &&
-//                                (twoDArray[1][0] != 4 && (twoDArray[1][0] == 10 || twoDArray[1][0] == 11) )
-//                                &&
-//                                (twoDArray[1][1] != 5 && (twoDArray[1][1] == 10 || twoDArray[1][1] == 11) )
-//                                &&
-//                                (twoDArray[1][2] != 6 && (twoDArray[1][2] == 10 || twoDArray[1][2] == 11) )
-//                                &&
-//                                (twoDArray[2][0] != 7 && (twoDArray[2][0] == 10 || twoDArray[2][0] == 11) )
-//                                &&
-//                                (twoDArray[2][1] != 8 && (twoDArray[2][1] == 10 || twoDArray[2][1] == 11) )
-//                                &&
-//                                (twoDArray[2][2] != 9 && (twoDArray[2][2] == 10 || twoDArray[2][2] == 11) )
-//                ){
-//                    System.out.println("Tie");
-//                    tie = true;
-//                    break;
-//
-//                }
-                else
-                    System.out.println("Invalid choice");
-
-
-            }
-
-            computerExit = false;
-            while (!computerExit && !tie) {
-                if (checkFull(twoDArray)) {
-                    System.out.println("Tie");
-                    tie = true;
-                    break;
-                }
-                print2DArray(twoDArray);
-                System.out.print("Computer choice: ");
-                computerNumber = getRandom();
-                System.out.println(" " + computerNumber);
-                index = getIndex(computerNumber);
-                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
-                        && (
-                        (twoDArray[0][0] == 1)
-                                ||
-                                (twoDArray[0][1] == 2)
-                                ||
-                                (twoDArray[0][2] == 3)
-                                ||
-                                (twoDArray[1][0] == 4)
-                                ||
-                                (twoDArray[1][1] == 5)
-                                ||
-                                (twoDArray[1][2] == 6)
-                                ||
-                                (twoDArray[2][0] == 7)
-                                ||
-                                (twoDArray[2][1] == 8)
-                                ||
-                                (twoDArray[2][2] == 9)
-
-
-                )
-                ){
-                    twoDArray[index[0]][index[1]] = 11;
-                    computerExit = true;
-                    System.out.println("Valid number");
-
-                }
-//                else if(
-//                        (twoDArray[0][0] != 1 && (twoDArray[0][0] == 10 || twoDArray[0][0] == 11) )
-//                                &&
-//                                (twoDArray[0][1] != 2 && (twoDArray[0][1] == 10 || twoDArray[0][1] == 11) )
-//                                &&
-//                                (twoDArray[0][2] != 3 && (twoDArray[0][2] == 10 || twoDArray[0][2] == 11) )
-//                                &&
-//                                (twoDArray[1][0] != 4 && (twoDArray[1][0] == 10 || twoDArray[1][0] == 11) )
-//                                &&
-//                                (twoDArray[1][1] != 5 && (twoDArray[1][1] == 10 || twoDArray[1][1] == 11) )
-//                                &&
-//                                (twoDArray[1][2] != 6 && (twoDArray[1][2] == 10 || twoDArray[1][2] == 11) )
-//                                &&
-//                                (twoDArray[2][0] != 7 && (twoDArray[2][0] == 10 || twoDArray[2][0] == 11) )
-//                                &&
-//                                (twoDArray[2][1] != 8 && (twoDArray[2][1] == 10 || twoDArray[2][1] == 11) )
-//                                &&
-//                                (twoDArray[2][2] != 9 && (twoDArray[2][2] == 10 || twoDArray[2][2] == 11) )
-//                ){
-//                    System.out.println("Tie");
-//                    tie = true;
-//                    break;
-//
-//                }
-                else
-                    System.out.println("Invalid number");
-            }
-
-            if (checkWin(twoDArray)[0]){
-                if (checkWin(twoDArray)[1] && !tie){
+                playerExit = false;
+                while (!playerExit && !tie) {
+                    if (checkFull(twoDArray)) {
+                        System.out.println("Tie");
+                        tie = true;
+                        break;
+                    }
                     print2DArray(twoDArray);
-                    System.out.println("Player has won");
+                    System.out.println("Input player choice between 1 and 9: ");
+
+                    try {
+                        playerNumber = scanner.nextInt();
+                        inValaidNumber(playerNumber);
+                    }
+                    catch (InputMismatchException e) {
+                        System.out.println("Please enter a number");
+                        scanner.next();
+                        continue;
+                    }
+                    catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        continue;
+                    }
+                    index = getIndex(playerNumber);
+
+                    if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
+                            && (
+                            (twoDArray[0][0] == 1)
+                                    ||
+                                    (twoDArray[0][1] == 2)
+                                    ||
+                                    (twoDArray[0][2] == 3)
+                                    ||
+                                    (twoDArray[1][0] == 4)
+                                    ||
+                                    (twoDArray[1][1] == 5)
+                                    ||
+                                    (twoDArray[1][2] == 6)
+                                    ||
+                                    (twoDArray[2][0] == 7)
+                                    ||
+                                    (twoDArray[2][1] == 8)
+                                    ||
+                                    (twoDArray[2][2] == 9)
+
+
+                    )
+                    ){
+                        twoDArray[index[0]][index[1]] = 10;
+                        playerExit = true;
+                    }
+                    else
+                        System.out.println("Invalid choice");
+
+
                 }
-                else if (!checkWin(twoDArray)[1] && !tie) {
+
+                computerExit = false;
+                while (!computerExit && !tie) {
+                    if (checkFull(twoDArray)) {
+                        System.out.println("Tie");
+                        tie = true;
+                        break;
+                    }
                     print2DArray(twoDArray);
-                    System.out.println("Computer has won");
+                    System.out.print("Computer choice: ");
+                    computerNumber = getRandom();
+                    System.out.println(" " + computerNumber);
+                    try {
+                        inValaidNumber(computerNumber);
+                    }
+                    catch (InputMismatchException e) {
+                        System.out.println("Please enter a number");
+                        scanner.next();
+                        continue;
+                    }
+                    catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        continue;
+                    }
+                    index = getIndex(computerNumber);
+                    if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
+                            && (
+                            (twoDArray[0][0] == 1)
+                                    ||
+                                    (twoDArray[0][1] == 2)
+                                    ||
+                                    (twoDArray[0][2] == 3)
+                                    ||
+                                    (twoDArray[1][0] == 4)
+                                    ||
+                                    (twoDArray[1][1] == 5)
+                                    ||
+                                    (twoDArray[1][2] == 6)
+                                    ||
+                                    (twoDArray[2][0] == 7)
+                                    ||
+                                    (twoDArray[2][1] == 8)
+                                    ||
+                                    (twoDArray[2][2] == 9)
+
+
+                    )
+                    ){
+                        twoDArray[index[0]][index[1]] = 11;
+                        computerExit = true;
+
+
+                    }
+                    else
+                        System.out.println("Invalid number");
+                }
+
+                if (checkWin(twoDArray)[0]){
+                    if (checkWin(twoDArray)[1] && !tie){
+                        print2DArray(twoDArray);
+                        System.out.println("Player has won");
+                    }
+                    else if (!checkWin(twoDArray)[1] && !tie) {
+                        print2DArray(twoDArray);
+                        System.out.println("Computer has won");
+                    }
+
                 }
 
             }
 
-        }
-        ;
+
+
 
 
 
@@ -311,6 +293,11 @@ public class Main {
                 if (twoDArray[i][j] != 10 && twoDArray[i][j] != 11)
                     return false;
         return true;
+    }
+
+    public static void inValaidNumber(int number) throws Exception{
+        if (!(number >= 1 && number <=9))
+            throw new Exception("numbers should be between 1 and 9");
     }
 
 
