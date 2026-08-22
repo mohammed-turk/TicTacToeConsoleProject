@@ -22,24 +22,76 @@ public class Main {
 
         int playerValue = 10;
         int computerValue = 11;
+        boolean tie = false;
 
         boolean playerExit;
         boolean computerExit;
         int[] index;
 
-        while (!checkWin(twoDArray)){
+        while (!checkWin(twoDArray)[0] && !tie){
 
             playerExit = false;
-            while (!playerExit) {
+            while (!playerExit && !tie) {
+                if (checkFull(twoDArray)) {
+                    System.out.println("Tie");
+                    tie = true;
+                    break;
+                }
                 print2DArray(twoDArray);
                 System.out.println("Input player choice between 1 and 9: ");
                 playerNumber = scanner.nextInt();
                 index = getIndex(playerNumber);
-                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11 ){
+                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
+                    && (
+                        (twoDArray[0][0] == 1)
+                        ||
+                                (twoDArray[0][1] == 2)
+                                ||
+                                (twoDArray[0][2] == 3)
+                                ||
+                                (twoDArray[1][0] == 4)
+                                ||
+                                (twoDArray[1][1] == 5)
+                                ||
+                                (twoDArray[1][2] == 6)
+                                ||
+                                (twoDArray[2][0] == 7)
+                                ||
+                                (twoDArray[2][1] == 8)
+                                ||
+                                (twoDArray[2][2] == 9)
+
+
+                        )
+                ){
                     twoDArray[index[0]][index[1]] = 10;
                     playerExit = true;
                     System.out.println("Valid choice");
                 }
+//                else if(
+//                        (twoDArray[0][0] != 1 && (twoDArray[0][0] == 10 || twoDArray[0][0] == 11) )
+//                                &&
+//                                (twoDArray[0][1] != 2 && (twoDArray[0][1] == 10 || twoDArray[0][1] == 11) )
+//                                &&
+//                                (twoDArray[0][2] != 3 && (twoDArray[0][2] == 10 || twoDArray[0][2] == 11) )
+//                                &&
+//                                (twoDArray[1][0] != 4 && (twoDArray[1][0] == 10 || twoDArray[1][0] == 11) )
+//                                &&
+//                                (twoDArray[1][1] != 5 && (twoDArray[1][1] == 10 || twoDArray[1][1] == 11) )
+//                                &&
+//                                (twoDArray[1][2] != 6 && (twoDArray[1][2] == 10 || twoDArray[1][2] == 11) )
+//                                &&
+//                                (twoDArray[2][0] != 7 && (twoDArray[2][0] == 10 || twoDArray[2][0] == 11) )
+//                                &&
+//                                (twoDArray[2][1] != 8 && (twoDArray[2][1] == 10 || twoDArray[2][1] == 11) )
+//                                &&
+//                                (twoDArray[2][2] != 9 && (twoDArray[2][2] == 10 || twoDArray[2][2] == 11) )
+//                ){
+//                    System.out.println("Tie");
+//                    tie = true;
+//                    break;
+//
+//                }
                 else
                     System.out.println("Invalid choice");
 
@@ -47,23 +99,87 @@ public class Main {
             }
 
             computerExit = false;
-            while (!computerExit) {
+            while (!computerExit && !tie) {
+                if (checkFull(twoDArray)) {
+                    System.out.println("Tie");
+                    tie = true;
+                    break;
+                }
                 print2DArray(twoDArray);
-                System.out.println("Computer choice: ");
+                System.out.print("Computer choice: ");
                 computerNumber = getRandom();
+                System.out.println(" " + computerNumber);
                 index = getIndex(computerNumber);
-                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11 ){
+                if (twoDArray[index[0]][index[1]] != 10 && twoDArray[index[0]][index[1]] != 11
+                        && (
+                        (twoDArray[0][0] == 1)
+                                ||
+                                (twoDArray[0][1] == 2)
+                                ||
+                                (twoDArray[0][2] == 3)
+                                ||
+                                (twoDArray[1][0] == 4)
+                                ||
+                                (twoDArray[1][1] == 5)
+                                ||
+                                (twoDArray[1][2] == 6)
+                                ||
+                                (twoDArray[2][0] == 7)
+                                ||
+                                (twoDArray[2][1] == 8)
+                                ||
+                                (twoDArray[2][2] == 9)
+
+
+                )
+                ){
                     twoDArray[index[0]][index[1]] = 11;
                     computerExit = true;
                     System.out.println("Valid number");
 
                 }
+//                else if(
+//                        (twoDArray[0][0] != 1 && (twoDArray[0][0] == 10 || twoDArray[0][0] == 11) )
+//                                &&
+//                                (twoDArray[0][1] != 2 && (twoDArray[0][1] == 10 || twoDArray[0][1] == 11) )
+//                                &&
+//                                (twoDArray[0][2] != 3 && (twoDArray[0][2] == 10 || twoDArray[0][2] == 11) )
+//                                &&
+//                                (twoDArray[1][0] != 4 && (twoDArray[1][0] == 10 || twoDArray[1][0] == 11) )
+//                                &&
+//                                (twoDArray[1][1] != 5 && (twoDArray[1][1] == 10 || twoDArray[1][1] == 11) )
+//                                &&
+//                                (twoDArray[1][2] != 6 && (twoDArray[1][2] == 10 || twoDArray[1][2] == 11) )
+//                                &&
+//                                (twoDArray[2][0] != 7 && (twoDArray[2][0] == 10 || twoDArray[2][0] == 11) )
+//                                &&
+//                                (twoDArray[2][1] != 8 && (twoDArray[2][1] == 10 || twoDArray[2][1] == 11) )
+//                                &&
+//                                (twoDArray[2][2] != 9 && (twoDArray[2][2] == 10 || twoDArray[2][2] == 11) )
+//                ){
+//                    System.out.println("Tie");
+//                    tie = true;
+//                    break;
+//
+//                }
                 else
                     System.out.println("Invalid number");
             }
 
+            if (checkWin(twoDArray)[0]){
+                if (checkWin(twoDArray)[1] && !tie){
+                    print2DArray(twoDArray);
+                    System.out.println("Player has won");
+                }
+                else if (!checkWin(twoDArray)[1] && !tie) {
+                    print2DArray(twoDArray);
+                    System.out.println("Computer has won");
+                }
+
+            }
+
         }
-        print2DArray(twoDArray);
+        ;
 
 
 
@@ -87,7 +203,10 @@ public class Main {
             System.out.println("|---|---|---|");
         }
     }
-    public static boolean checkWin(int[][] twoDArray ){
+    public static boolean[] checkWin(int[][] twoDArray ){
+        boolean win;
+        boolean playerWon;
+        boolean[] result = new boolean[2];
 
         if (
                 (twoDArray[0][0] == twoDArray[0][1] && twoDArray[0][0] == twoDArray[0][2])
@@ -106,10 +225,41 @@ public class Main {
                 ||
                 (twoDArray[0][2] == twoDArray[1][2] && twoDArray[0][2] == twoDArray[2][2])
         ){
-            return true;
+
+            if(
+                    (twoDArray[0][0] == twoDArray[0][1] && twoDArray[0][0] == twoDArray[0][2] && twoDArray[0][0] == 10)
+                            ||
+                            (twoDArray[1][0] == twoDArray[1][1] && twoDArray[1][0] == twoDArray[1][2] && twoDArray[1][0] == 10)
+                            ||
+                            (twoDArray[2][0] == twoDArray[2][1] && twoDArray[2][0] == twoDArray[2][2] && twoDArray[2][0] == 10)
+                            ||
+                            (twoDArray[0][0] == twoDArray[1][1] && twoDArray[0][0] == twoDArray[2][2] && twoDArray[0][0] == 10)
+                            ||
+                            (twoDArray[0][2] == twoDArray[1][1] && twoDArray[0][2] == twoDArray[2][0] && twoDArray[0][2] == 10)
+                            ||
+                            (twoDArray[0][0] == twoDArray[1][0] && twoDArray[0][0] == twoDArray[2][0] && twoDArray[0][0] == 10)
+                            ||
+                            (twoDArray[0][1] == twoDArray[1][1] && twoDArray[0][1] == twoDArray[2][1] && twoDArray[0][1] == 10)
+                            ||
+                            (twoDArray[0][2] == twoDArray[1][2] && twoDArray[0][2] == twoDArray[2][2] && twoDArray[0][2] == 10)
+            ){
+                win = true;
+                playerWon = true;
+                result[0] = win;
+                result[1] = playerWon;
+            }
+            else{
+                result[0] = true;
+                result[1] = false;
+            }
+            return result;
         }
-        else
-            return false;
+        else{
+            result[0] = false;
+            result[1] = false;
+            return result;
+        }
+
 
     }
     public static int getRandom(){
@@ -153,6 +303,14 @@ public class Main {
             index[1] = 2;
         }
         return index;
+    }
+
+    public static boolean checkFull(int[][] twoDArray){
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                if (twoDArray[i][j] != 10 && twoDArray[i][j] != 11)
+                    return false;
+        return true;
     }
 
 
